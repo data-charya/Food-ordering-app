@@ -1,0 +1,38 @@
+body{
+    background-color: linear-gradient(145deg, #e6e6e6,#ffffff) !important;
+    font-family: 'Fredoka One', cursive;
+
+}
+.login{
+    margin-left: 1400px;
+    border-radius: 50px;
+}
+.card{
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  30px 30px 61px #bfbfbf, 
+                -30px -30px 61px #ffffff;
+    border-color: linear-gradient(45deg, #ffffff, #e6e6e6);
+}
+.card-img-top{
+    border-radius: 10px;
+}
+.card-text{
+    font-family: 'Quicksand', sans-serif;font-weight: 600;
+    font-weight: 600;
+    font-size: 20px;
+    color: #585858;
+}
+.btn-circle.btn-sm { 
+    width: 30px; 
+    height: 30px; 
+    padding: 6px 0px; 
+    border-radius: 15px; 
+    font-size: 8px; 
+    text-align: center; 
+} 
+.button{
+    margin-left: 750px;
+}
+::-webkit-scrollbar{
+    display: none;
+}
