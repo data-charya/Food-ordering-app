@@ -25,9 +25,10 @@ class CreateDb
       $this->servername = $servername;
       $this->username = $username;
       $this->password = $password;
-
+    
+      $filename = 'crunch.sql';
       // create connection
-        $this->con = mysqli_connect($servername, $username, $password);
+        $this->con = mysqli_connect($servername, $username, $password,$filename);
 
         // Check connection
         if (!$this->con){
