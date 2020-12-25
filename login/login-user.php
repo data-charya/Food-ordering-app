@@ -1,0 +1,50 @@
+<?php require_once "controllerUserData.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crunch Dashboard</title>
+    <link rel="shortcut icon" type="image/jpg" href="../favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4 offset-md-4 form login-form" style="border-radius: 20px;">
+                <form action="login-user.php" method="POST" autocomplete="">
+                    <h2 class="text-center" ><a href="../index.php" style="font-size: 60px;font-family: 'Fredoka One';color: #070d59;text-decoration:none;">Crunch</a> </h2>
+                    <p class="text-center">Login with your email and password.</p>
+                    <?php
+                    if(count($errors) > 0){
+                        ?>
+                        <div class="alert alert-danger text-center">
+                            <?php
+                            foreach($errors as $showerror){
+                                echo $showerror;
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="form-group">
+                        <input class="form-control rounded-pill" type="email" name="email" placeholder="Email Address" required value="<?php echo $email ?>">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control rounded-pill" type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="link forget-pass text-left"><a href="forgot-password.php">Forgot password?</a></div>
+                    <div class="form-group">
+                        <input class="form-control button rounded-pill" type="submit" name="login" value="Login">
+                    </div>
+                    <div class="link login-link text-center" style="text-decoration: none;">Not yet a member? <a href="signup-user.php">Signup now</a></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

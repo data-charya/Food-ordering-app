@@ -1,0 +1,36 @@
+body::-webkit-scrollbar { width: 0 !important }
+.cou::-webkit-scrollbar { width: 0 !important }
+.cou{
+    width: 100vw;
+    height: 82vh;
+    overflow-y:scroll;
+    background: #9ddfd3;
+    border-radius: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+    box-shadow: inset 13px 13px 26px #85beb3, 
+            inset -13px -13px 26px #b5fff3;
+}
+.cartscroll::-webkit-scrollbar{width: 0!important;}
+.cartscroll{
+  border-radius: 20px;
+  width: auto;
+  height: 30vh;
+  background: #4e3399;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+.Hotels{
+  border-radius:20px;
+  background:#7579e7;
+  width:auto;
+  height:auto;
+  overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+body{
+  -ms-overflow-style:none;
+  scrollbar-width: none;
+}
