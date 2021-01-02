@@ -10,7 +10,7 @@ if($email == false){
 <head>
     <meta charset="UTF-8">
     <title>Code Verification</title>
-    <link rel="shortcut icon" type="image/jpg" href="../favicon.ico"/>
+    <link rel="shortcut icon" type="image/jpg" href="../images/favicon.ico"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>

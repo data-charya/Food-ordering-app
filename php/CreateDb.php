@@ -17,7 +17,7 @@ class CreateDb
         $tablename = "fooditems",
         $servername = "localhost",
         $username = "root",
-        $password = ""
+        $password = "root"
     )
     {
       $this->dbname = $dbname;
@@ -25,10 +25,9 @@ class CreateDb
       $this->servername = $servername;
       $this->username = $username;
       $this->password = $password;
-    
-      $filename = 'crunch.sql';
+
       // create connection
-        $this->con = mysqli_connect($servername, $username, $password,$filename);
+        $this->con = mysqli_connect($servername, $username, $password);
 
         // Check connection
         if (!$this->con){
@@ -79,7 +78,7 @@ class CreateDb
         }
     }
     public function getHotel($searchq){
-        $sql = "SELECT * FROM hotel WHERE hotel_name='$searchq'";
+        @$sql = "SELECT * FROM hotel WHERE hotel_name = '".$searchq."'";
         $query = mysqli_query($this->con, $sql);
 
         if(mysqli_num_rows($query)>0){

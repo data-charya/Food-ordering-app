@@ -24,16 +24,16 @@ if(isset($_POST['deleteall'])){
 }
 
 function createData(){
-    $bookname = textboxValue("name");
-    $bookprice = textboxValue("email");
+    $username = textboxValue("name");
+    $emailid = textboxValue("email");
     $password = textboxValue("password");
     $code = textboxValue("code");
     $status = textboxValue("status");
 
-    if($bookname && $bookprice && $password && $code && $status){
+    if($username && $emailid && $password && $code && $status){
 
         $sql = "INSERT INTO usertable (name, email,password,code,status) 
-                        VALUES ('$bookname','$bookprice','$password','$code','$status')";
+                        VALUES ('$username','$emailid','$password','$code','$status')";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
             TextNode("success", "Record Successfully Inserted...!");
@@ -76,16 +76,16 @@ function getData(){
 
 // update dat
 function UpdateData(){
-    $bookid = textboxValue("id");
-    $bookname = textboxValue("name");
-    $bookprice = textboxValue("email");
+    $userid = textboxValue("id");
+    $username = textboxValue("name");
+    $emailid = textboxValue("email");
     $password = textboxValue("password"); 
     $code = textboxValue("code");
     $status = textboxValue("status");
 
-    if($bookname && $bookprice && $password && $code && $status){
+    if($username && $emailid && $password && $code && $status){
         $sql = "
-                    UPDATE usertable SET name='$bookname', email = '$bookprice', passowrd = '$password', code = '$code', status = '$status' WHERE id='$bookid';                    
+                    UPDATE usertable SET name='$username', email = '$emailid', passowrd = '$password', code = '$code', status = '$status' WHERE id='$userid';                    
         ";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
@@ -103,9 +103,9 @@ function UpdateData(){
 
 
 function deleteRecord(){
-    $bookid = (int)textboxValue("id");
+    $userid = (int)textboxValue("id");
 
-    $sql = "DELETE FROM usertable WHERE id=$bookid";
+    $sql = "DELETE FROM usertable WHERE id=$userid";
 
     if(mysqli_query($GLOBALS['con'], $sql)){
         TextNode("success","Record Deleted Successfully...!");

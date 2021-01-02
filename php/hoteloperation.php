@@ -24,16 +24,16 @@ if(isset($_POST['deleteall'])){
 }
 
 function createData(){
-    $bookname = textboxValue("hotel_name");
-    $bookprice = textboxValue("hotel_type");
+    $hotelname = textboxValue("hotel_name");
+    $type = textboxValue("hotel_type");
     $location = textboxValue("hotel_location");
     $img = textboxValue("hotel_img");
     $address = textboxValue("hotel_address");
 
-    if($bookname && $bookprice && $location && $img && $address){
+    if($hotelname && $type && $location && $img && $address){
 
         $sql = "INSERT INTO hotel (hotel_name, hotel_type,hotel_location,hotel_img,hotel_address) 
-                        VALUES ('$bookname','$bookprice','$location','$img','$address')";
+                        VALUES ('$hotelname','$type','$location','$img','$address')";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
             TextNode("success", "Record Successfully Inserted...!");
@@ -76,16 +76,16 @@ function getData(){
 
 // update dat
 function UpdateData(){
-    $bookid = textboxValue("hotel_id");
-    $bookname = textboxValue("hotel_name");
-    $bookprice = textboxValue("hotel_type");
+    $hotelid = textboxValue("hotel_id");
+    $hotelname = textboxValue("hotel_name");
+    $type = textboxValue("hotel_type");
     $location = textboxValue("hotel_location"); 
     $img = textboxValue("hotel_img");
     $address = textboxValue("hotel_address");
 
-    if($bookname && $bookprice && $location && $img && $address){
+    if($hotelname && $type && $location && $img && $address){
         $sql = "
-                    UPDATE hotel SET hotel_name='$bookname', hotel_type = '$bookprice', hotel_location = '$location', hotel_img = '$img', hotel_address = '$address' WHERE id='$bookid';                    
+                    UPDATE hotel SET hotel_name='$hotelname', hotel_type = '$type', hotel_location = '$location', hotel_img = '$img', hotel_address = '$address' WHERE id='$bookid';                    
         ";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
@@ -103,9 +103,9 @@ function UpdateData(){
 
 
 function deleteRecord(){
-    $bookid = (int)textboxValue("hotel_id");
+    $hotelid = (int)textboxValue("hotel_id");
 
-    $sql = "DELETE FROM hotel WHERE id=$bookid";
+    $sql = "DELETE FROM hotel WHERE id=$hotelid";
 
     if(mysqli_query($GLOBALS['con'], $sql)){
         TextNode("success","Record Deleted Successfully...!");

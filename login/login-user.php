@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Crunch Dashboard</title>
-    <link rel="shortcut icon" type="image/jpg" href="../favicon.ico"/>
+    <link rel="shortcut icon" type="image/jpg" href="../images/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

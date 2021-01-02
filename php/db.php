@@ -3,7 +3,7 @@
 function Createdb(){
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "crunch";
 
     // create connection

@@ -61,15 +61,15 @@ if (isset($_POST['remove'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/jpg" href="favicon.ico"/>
-    <link rel="stylesheet" href="coupon.css">
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    <link rel="stylesheet" href="/css/coupon.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     
     <title>Crunch | Satisfy your craving</title>
 </head>
-<body>
+<body >
   <div class="container mt-md-2" style="width:100vw;height: 10vw;background: #7579e7;border-radius: 20px;">
     <br>
     <nav class="navbar navbar-expand-lg navbar-dark" style="font-family: 'Montserrat';font-weight: 700;font-size: 25px;color: #fff;">
@@ -85,12 +85,9 @@ if (isset($_POST['remove'])){
               <a class="nav-link" href="employee.php">Employee</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="coupons.php">Coupons</a>
+              <a class="nav-link" href="coupon.php">Coupons</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action ="login/login-user.php">
-            <a href="login/login-user.php"><button class="btn my-2 my-sm-0" type="submit" style="background: #d2fafb;border-radius: 20px;color: #2b7cc9;font-family: 'Montserrat';font-weight: 700;">Dashboard</button></a>
-          </form>
         </div>
     </nav>
   </div> 

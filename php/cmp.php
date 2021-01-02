@@ -1,4 +1,6 @@
+
 <?php
+//menu component
 function comp($item_name, $item_price, $id){
     $com = "
     <form action=\"index.php\" method=\"post\">
@@ -20,10 +22,11 @@ function comp($item_name, $item_price, $id){
     echo $com;
 }
 
+//cart component
 function cartcomp($item_name,$item_price,$id){
     $cartcom = "
             <form action=\"index.php?action=remove&id=$id\" method=\"post\">
-                <div class=\"container \" style=\"border-radius: 20px;width: auto;height: auto;background: #3f82fd;box-shadow: 5px 8px 12px #0d66a5;\">
+                <div class=\"container \" style=\"border-radius: 20px;width: auto;height: auto;background: #3f82fd;box-shadow: 5px 8px 12px #03245e;\">
                     <div class=\"row\">
                       <div class=\"col mt-md-2\">
                         <p style=\"font-family: 'Montserrat';font-weight: 700;font-size: 25px;color: #fff;\">$item_name</p>
@@ -40,6 +43,7 @@ function cartcomp($item_name,$item_price,$id){
     echo $cartcom;
 }
 
+//hotel component
 function hotels($hotelname,$hoteltype,$hotellocation,$hotelimage,$hotellink){
   $hot = "
   
@@ -60,6 +64,7 @@ function hotels($hotelname,$hoteltype,$hotellocation,$hotelimage,$hotellink){
   echo $hot;
 }
 
+//coupon component
 function coup($value,$desc,$link){
   $coupon = "
             <div class=\"container py-2 mb-5\" style=\"border-radius: 20px;width: 20vw;height: auto;background: #31326f;box-shadow: 5px 8px 18px #084239;\">
@@ -78,7 +83,7 @@ function coup($value,$desc,$link){
   echo $coupon;
 }
 
-
+//employee comoponent
 function emp($name,$gender,$dep){
   $work = "
             <div class=\"container py-3 mb-5\" style=\"border-radius: 20px;width: 20vw;height: auto;background: #27296d;box-shadow: 5px 8px 18px #141771;\">

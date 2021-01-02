@@ -24,13 +24,13 @@ if(isset($_POST['deleteall'])){
 }
 
 function createData(){
-    $bookname = textboxValue("item_name");
-    $bookprice = textboxValue("item_price");
+    $itemname = textboxValue("item_name");
+    $itemprice = textboxValue("item_price");
 
-    if($bookname && $bookprice){
+    if($itemname && $itemprice){
 
-        $sql = "INSERT INTO fooditems (book_name, book_price) 
-                        VALUES ('$bookname','$bookprice')";
+        $sql = "INSERT INTO fooditems (item_name, item_price) 
+                        VALUES ('$itemname','$itemprice')";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
             TextNode("success", "Record Successfully Inserted...!");
@@ -73,13 +73,13 @@ function getData(){
 
 // update dat
 function UpdateData(){
-    $bookid = textboxValue("id");
-    $bookname = textboxValue("item_name");
-    $bookprice = textboxValue("item_price");
+    $itemid = textboxValue("id");
+    $itemname = textboxValue("item_name");
+    $itemprice = textboxValue("item_price");
 
-    if($bookname && $bookprice){
+    if($itemname && $itemprice){
         $sql = "
-                    UPDATE fooditems SET item_name='$bookname', item_price = '$bookprice' WHERE id='$bookid';                    
+                    UPDATE fooditems SET item_name='$itemname', item_price = '$itemprice' WHERE id='$itemid';                    
         ";
 
         if(mysqli_query($GLOBALS['con'], $sql)){
@@ -97,9 +97,9 @@ function UpdateData(){
 
 
 function deleteRecord(){
-    $bookid = (int)textboxValue("id");
+    $itemid = (int)textboxValue("id");
 
-    $sql = "DELETE FROM fooditems WHERE id=$bookid";
+    $sql = "DELETE FROM fooditems WHERE id=$itemid";
 
     if(mysqli_query($GLOBALS['con'], $sql)){
         TextNode("success","Record Deleted Successfully...!");
