@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 21, 2020 at 01:01 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Host: localhost:3306
+-- Generation Time: Jan 03, 2021 at 02:59 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -50,6 +51,19 @@ INSERT INTO `coupons` (`coupon_id`, `coupon_value`, `coupon_desc`, `coupon_link`
 (15, 85, 'Orders above Rs.150', 'https://zoutons.com/zomato-coupons', 4),
 (16, 25, 'First 3 orders', 'https://zoutons.com/zomato-coupons', 5),
 (17, 70, 'On combos', 'https://zoutons.com/zomato-coupons', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `crunch`
+--
+
+CREATE TABLE `crunch` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `hotel_id` int(11) DEFAULT NULL,
+  `dept_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -130,9 +144,6 @@ CREATE TABLE `fooditems` (
 --
 
 INSERT INTO `fooditems` (`id`, `item_name`, `item_price`) VALUES
-(1, 'Chicken Biryani', 120),
-(2, 'Chicken Tikka Masala', 90),
-(3, 'Mutton Biryani', 140),
 (4, 'Dosa', 10),
 (5, 'Idli', 10),
 (6, 'Vada', 10),
@@ -150,7 +161,10 @@ INSERT INTO `fooditems` (`id`, `item_name`, `item_price`) VALUES
 (18, 'Chicken Chilly', 95),
 (19, 'Chicken Pepper', 120),
 (20, 'Chicken Ghee Roast', 150),
-(21, 'Mutton Kofta', 140);
+(21, 'Mutton Kofta', 140),
+(22, 'Chicken Biryani', 120),
+(23, 'Chicken Tikka Masala', 90),
+(24, 'Mutton Biryani', 140);
 
 -- --------------------------------------------------------
 
@@ -201,8 +215,8 @@ CREATE TABLE `usertable` (
 --
 
 INSERT INTO `usertable` (`id`, `name`, `email`, `password`, `code`, `status`) VALUES
-(1, 'Shanwill Pinto', 'Shanwillpinto@gmail.com', '$2y$10$vzWaATHMmYCnahTzlGHw4uK8I7jTVOLE7iMbr6QmUKTytvz0q2Jpa', 0, 'verified'),
-(6, 'Vignesh Shetty', 'vignesh@gmail.com', '$2y$10$gYSMumQ.jjlfsuGzFGrDf.FhkqpqkecFqqUXkfVO4EL/CO.JA02xK', 0, 'verified');
+(6, 'Vignesh Shetty', 'vignesh@gmail.com', '$2y$10$gYSMumQ.jjlfsuGzFGrDf.FhkqpqkecFqqUXkfVO4EL/CO.JA02xK', 0, 'verified'),
+(7, 'Shanwill Pinto', 'Shanwillpinto@gmail.com', '$2y$10$exg3e9nbISGyIWABV9Nrt.gu2hJNuIDXAIajw/3lANDcJKBCGiAG6', 0, 'verified');
 
 --
 -- Indexes for dumped tables
@@ -213,6 +227,15 @@ INSERT INTO `usertable` (`id`, `name`, `email`, `password`, `code`, `status`) VA
 --
 ALTER TABLE `coupons`
   ADD PRIMARY KEY (`coupon_id`),
+  ADD KEY `hotel_id` (`hotel_id`);
+
+--
+-- Indexes for table `crunch`
+--
+ALTER TABLE `crunch`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `crunch_ibfk_1` (`user_id`),
+  ADD KEY `dept_id` (`dept_id`),
   ADD KEY `hotel_id` (`hotel_id`);
 
 --
@@ -260,7 +283,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `fooditems`
 --
 ALTER TABLE `fooditems`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `hotel`
@@ -272,7 +295,7 @@ ALTER TABLE `hotel`
 -- AUTO_INCREMENT for table `usertable`
 --
 ALTER TABLE `usertable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -283,6 +306,14 @@ ALTER TABLE `usertable`
 --
 ALTER TABLE `coupons`
   ADD CONSTRAINT `coupons_ibfk_1` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `crunch`
+--
+ALTER TABLE `crunch`
+  ADD CONSTRAINT `crunch_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `usertable` (`id`) ON DELETE CASCADE ON UPDATE SET NULL,
+  ADD CONSTRAINT `crunch_ibfk_2` FOREIGN KEY (`dept_id`) REFERENCES `department` (`dept_id`) ON DELETE CASCADE ON UPDATE SET NULL,
+  ADD CONSTRAINT `crunch_ibfk_3` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`hotel_id`);
 
 --
 -- Constraints for table `employee`

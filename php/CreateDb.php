@@ -78,7 +78,7 @@ class CreateDb
         }
     }
     public function getHotel($searchq){
-        @$sql = "SELECT * FROM hotel WHERE hotel_name = '".$searchq."'";
+        @$sql = "SELECT * FROM hotel WHERE hotel_name like '%$searchq%'";
         $query = mysqli_query($this->con, $sql);
 
         if(mysqli_num_rows($query)>0){
